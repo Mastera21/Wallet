@@ -1,7 +1,7 @@
 ﻿  main.cpp
   Generating code
-  1 of 26 functions ( 3.8%) were compiled, the rest were copied from previous compilation.
+  1 of 114 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  Wallet.vcxproj -> C:\Users\user\source\repos\Wallet\x64\Release\Wallet.exe
+  Wallet.vcxproj -> C:\Users\user\GitHub Repositorys\Wallet\Wallet\x64\Release\Wallet.exe
