@@ -11,7 +11,7 @@
 
 class Text {
 public:
-	void init(std::string path, std::string name, int size, sf::Color color, sf::Vector2f pos);
+	int32_t init(std::string path, std::string name, int size, sf::Color color, sf::Vector2f pos);
 	void hide();
 	void draw(sf::RenderWindow& _window);
 

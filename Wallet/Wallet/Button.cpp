@@ -8,9 +8,7 @@
 
 //Own components headers
 
-Button::Button() {}
-
-void Button::init(std::string path, std::string text, sf::Vector2f size, int textSize, sf::Color bgColor, sf::Color textColor) {
+int32_t Button::init(std::string path, std::string text, sf::Vector2f size, int textSize, sf::Color bgColor, sf::Color textColor) {
 	if (!_font.loadFromFile(path)) {
 		std::cerr << "Cannot open font for file -> Button::init()\n";
 	}
@@ -20,6 +18,8 @@ void Button::init(std::string path, std::string text, sf::Vector2f size, int tex
 	_text.setCharacterSize(textSize);
 	_button.setSize(size);
 	_button.setFillColor(bgColor);
+
+	return EXIT_SUCCESS;
 }
 
 void Button::setBackColor(sf::Color color) {

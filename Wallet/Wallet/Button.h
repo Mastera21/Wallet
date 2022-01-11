@@ -12,8 +12,7 @@
 
 class Button {
 public:
-	Button();
-	void init(std::string path, std::string text, sf::Vector2f size, int textSize, sf::Color bgColor, sf::Color textColor);
+	int32_t init(std::string path, std::string text, sf::Vector2f size, int textSize, sf::Color bgColor, sf::Color textColor);
 
 	void setBackColor(sf::Color color);
 	void setTextColor(sf::Color color);

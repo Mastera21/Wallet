@@ -1,6 +1,22 @@
-﻿  main.cpp
+﻿  Application.cpp
+C:\Users\user\GitHub Repositorys\Wallet\Wallet\Wallet\Application.cpp(64,49): warning C4805: '==': unsafe mix of type 'sf::Event::EventType' and type 'bool' in operation
+  Button.cpp
+C:\Users\user\GitHub Repositorys\Wallet\Wallet\Wallet\Button.cpp(48,15): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\user\GitHub Repositorys\Wallet\Wallet\Wallet\Button.cpp(49,15): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+  main.cpp
+  Text.cpp
+  UI.cpp
   Generating code
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
-  All 123 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  123 of 137 functions (89.8%) were compiled, the rest were copied from previous compilation.
+    18 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Wallet.vcxproj -> C:\Users\user\GitHub Repositorys\Wallet\Wallet\x64\Release\Wallet.exe

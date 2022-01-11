@@ -7,8 +7,7 @@
 //Other libraries headers
 #include <SFML/Graphics.hpp>
 //Own components headers
-#include "Text.h"
-#include "Button.h"
+#include "UI.h"
 
 //Forward declarations
 
@@ -25,13 +24,6 @@ private:
 	void deinit();
 
 	sf::RenderWindow* _window = nullptr;
-
-	Text _walletText;
-	Text _balanceText;
-	Text _depositeText;
-	Text _widrawText;
-
-	Button _depostButton;
-	Button _withdrawButton;
+	UI _ui;
 };
 
