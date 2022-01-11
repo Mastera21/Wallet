@@ -5,10 +5,9 @@
 //C++ system headers
 
 //Other libraries headers
-#include <SFML/Graphics.hpp>
+
 //Own components headers
 #include "UI.h"
-
 //Forward declarations
 
 class Application{
