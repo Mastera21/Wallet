@@ -13,15 +13,30 @@ int32_t Deposit::init() {
         std::cerr << "_deposit.init() failed.\n";
         return EXIT_FAILURE;
     }
+
+    if (EXIT_SUCCESS != _textBox.init("fonts/Roboto-Black.ttf", 20,sf::Vector2f(250,100), sf::Color::White, true)) {
+        std::cerr << "_textBox.init() failed.\n";
+        return EXIT_FAILURE;
+    }
+    _textBox.setLimit(true, 10);
+
     return EXIT_SUCCESS;
 }
 void Deposit::deinit() {
-
+    
 }
 void Deposit::draw(sf::RenderWindow* window) {
     _depositText.draw(*window);
-
+    _textBox.draw(*window);
 }
 void Deposit::handleEvent(sf::Event e) {
-
+    if (e.type == sf::Event::TextEntered) {
+        _textBox.handleEvent(e);
+    }
+    if (e.type == sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+        _textBox.setSelected(true);
+    }
+    if (e.type == sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+        _textBox.setSelected(false);
+    }
 }

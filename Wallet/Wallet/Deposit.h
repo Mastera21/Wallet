@@ -7,7 +7,7 @@
 #include <cstdint>
 //Own components headers
 #include "Text.h"
-
+#include "TextBox.h"
 //Forward declarations
 
 class Deposit{
@@ -19,5 +19,6 @@ public:
 
 private:
 	Text _depositText;
+	TextBox _textBox;
 };
 

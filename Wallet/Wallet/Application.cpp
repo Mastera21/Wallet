@@ -18,7 +18,6 @@ void Application::init() {
     if (EXIT_SUCCESS != _ui.init()) {
         std::cerr << "_ui.init() failed.\n";
     }
-
 }
 void Application::main() {
     init();
@@ -38,6 +37,7 @@ void Application::run() {
 }
 bool Application::update() {
     sf::Event e;
+
     while (_window->pollEvent(e)) {
         if (checkForExit(e)) {
             return true;
