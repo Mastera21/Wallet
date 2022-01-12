@@ -11,7 +11,7 @@
 void Application::init() {
 
     const int W = 600;
-    const int H = 700;
+    const int H = 600;
 
     _window = new sf::RenderWindow(sf::VideoMode(W, H), "Wallet");
 
@@ -47,8 +47,8 @@ bool Application::update() {
     }
     return false;
 }
-void Application::handleEvent(sf::Event& e, sf::RenderWindow*& _window) {
-    _ui.handleEvent(e, _window);
+void Application::handleEvent(sf::Event& e, sf::RenderWindow*& window) {
+    _ui.handleEvent(e, window);
 }
 void Application::draw() {
     _window->clear(sf::Color::Black);

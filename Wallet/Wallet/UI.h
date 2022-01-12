@@ -7,8 +7,7 @@
 //Other libraries headers
 #include <SFML/Graphics.hpp>
 //Own components headers
-#include "Text.h"
-#include "Button.h"
+#include "MainMenu.h"
 
 //Forward declarations
 
@@ -17,15 +16,9 @@ public:
 	int32_t init();
 	void deinit();
 	void draw(sf::RenderWindow* _window);
-	void handleEvent(sf::Event& e, sf::RenderWindow*& _window);
+	void handleEvent(const sf::Event& e, sf::RenderWindow*& window);
 
 private:
-	Text _walletText;
-	Text _balanceText;
-	Text _depositeText;
-	Text _widrawText;
-
-	Button _depostButton;
-	Button _withdrawButton;
+	MainMenu _menu;
 };
 

@@ -18,7 +18,7 @@ private:
 	void main();
 	bool update();
 	void draw();
-	void handleEvent(sf::Event& e, sf::RenderWindow*& _window);
+	void handleEvent(sf::Event& e, sf::RenderWindow*& window);
 	bool checkForExit(sf::Event& e);
 	void deinit();
 
