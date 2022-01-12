@@ -18,6 +18,7 @@ void Application::init() {
     if (EXIT_SUCCESS != _ui.init()) {
         std::cerr << "_ui.init() failed.\n";
     }
+
 }
 void Application::main() {
     init();
@@ -58,7 +59,10 @@ void Application::draw() {
     _window->display();
 }
 void Application::deinit() {
-	delete _window;
+    _ui.deinit();
+    if (_window) {
+        delete _window;
+    }
 }
 bool Application::checkForExit(sf::Event& e) {
     return (e.type == sf::Keyboard::isKeyPressed(sf::Keyboard::Escape));

@@ -13,14 +13,40 @@ int32_t UI::init() {
         std::cerr << "_menu.init() failed.\n";
         return EXIT_FAILURE;
     }
+    if (EXIT_SUCCESS != _deposit.init()) {
+        std::cerr << "_deposit.init() failed.\n";
+        return EXIT_FAILURE;
+    }
+    if (EXIT_SUCCESS != _withdraw.init()) {
+        std::cerr << "_withdraw.init() failed.\n";
+        return EXIT_FAILURE;
+    }
+
+    _isDepositButtonPressed = false;
+    _isWithdrawButtonPressed = false;
+
     return EXIT_SUCCESS;
 }
 void UI::deinit() {
+    _withdraw.deinit();
+    _deposit.deinit();
     _menu.deinit();
 }
-void UI::draw(sf::RenderWindow* _window) {
-    _menu.draw(_window);
-}
 void UI::handleEvent(const sf::Event& e, sf::RenderWindow*& window) {
-    _menu.handleEvent(e, window);
+    _menu.handleEvent(e, window, _isDepositButtonPressed, _isWithdrawButtonPressed);
+    _deposit.handleEvent(e);
+    _withdraw.handleEvent(e);
+}
+void UI::draw(sf::RenderWindow* window) {
+    if (_isDepositButtonPressed) {
+        //create class Deposit
+        _deposit.draw(window);
+
+    }else if (_isWithdrawButtonPressed) {
+        //create class Withdraw
+        _withdraw.draw(window);
+
+    }else {
+        _menu.draw(window);
+    }
 }

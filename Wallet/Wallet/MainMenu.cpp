@@ -44,33 +44,33 @@ void MainMenu::draw(sf::RenderWindow* _window) {
     _depostButton.draw(*_window);
     _withdrawButton.draw(*_window);
 }
-void MainMenu::handleEvent(const sf::Event& e, sf::RenderWindow*& _window) {
+void MainMenu::handleEvent(const sf::Event& e, sf::RenderWindow*& _window,  bool& _isDepositButtonPressed, bool& _isWithdrawButtonPressed) {
     if (sf::Event::MouseMoved) {
         if (_depostButton.isMouseHover(*_window)) {
             _depostButton.setBackColor(sf::Color::Green);
-        }
-        else {
+        }else {
             _depostButton.setBackColor(sf::Color::White);
         }
     }
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         if (_depostButton.isMouseHover(*_window)) {
-            std::cout << "_depostButton was Presed\n";
+            //std::cout << "_depostButton was Presed\n";
+            _isDepositButtonPressed = true;
         }
     }
 
     if (sf::Event::MouseMoved) {
         if (_withdrawButton.isMouseHover(*_window)) {
             _withdrawButton.setBackColor(sf::Color::Green);
-        }
-        else {
+        }else {
             _withdrawButton.setBackColor(sf::Color::White);
         }
     }
 
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         if (_withdrawButton.isMouseHover(*_window)) {
-            std::cout << "_withdrawButton was Presed\n";
+           // std::cout << "_withdrawButton was Presed\n";
+            _isWithdrawButtonPressed = true;
         }
     }
 }

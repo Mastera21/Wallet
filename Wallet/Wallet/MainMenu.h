@@ -10,6 +10,7 @@
 //Own components headers
 #include "Text.h"
 #include "Button.h"
+#include "TextBox.h"
 
 //Forward declarations
 
@@ -18,7 +19,7 @@ public:
 	int32_t init();
 	void deinit();
 	void draw(sf::RenderWindow* _window);
-	void handleEvent(const sf::Event& e, sf::RenderWindow*& _window);
+	void handleEvent(const sf::Event& e, sf::RenderWindow*& _window, bool& _isDepositButtonPressed, bool& _isWithdrawButtonPressed);
 
 private:
 	Text _walletText;

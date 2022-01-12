@@ -147,17 +147,23 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Deposit.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Text.cpp" />
+    <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="UI.cpp" />
+    <ClCompile Include="Withdraw.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Deposit.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Text.h" />
+    <ClInclude Include="TextBox.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="Withdraw.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
