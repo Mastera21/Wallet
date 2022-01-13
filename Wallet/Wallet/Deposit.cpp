@@ -66,9 +66,7 @@ void Deposit::handleEvent(sf::Event e, sf::RenderWindow*& _window) {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         if (_depostButton.isMouseHover(*_window)) {
             //getting informatin from textbox
-            double sum = std::stod(getData());
-            _wallet.deposit(sum);
-            std::cout << _wallet.getBalance()<<"\n";
+            storWalletInfo();
         }
     }
 
@@ -82,4 +80,15 @@ void Deposit::handleEvent(sf::Event e, sf::RenderWindow*& _window) {
     if (e.type == sf::Event::TextEntered) {
         _textBox.handleEvent(e);
     }
+}
+
+void Deposit::storWalletInfo() {
+    std::ofstream outFile;
+    outFile.open("WalletAmount.txt");
+
+    double sum = std::stod(getData());
+    _wallet.deposit(sum);
+    outFile << _wallet.getBalance();
+
+    outFile.close();
 }

@@ -21,6 +21,8 @@ public:
 	std::string getData();
 
 private:
+	void storWalletInfo();
+
 	Text _depositText;
 	Text _text;
 	TextBox _textBox;
