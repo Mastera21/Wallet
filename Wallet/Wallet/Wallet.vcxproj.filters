@@ -42,6 +42,9 @@
     <ClCompile Include="Withdraw.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="Wallet.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Text.h">
@@ -66,6 +69,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Withdraw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Wallet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

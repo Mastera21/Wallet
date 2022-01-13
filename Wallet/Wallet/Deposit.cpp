@@ -4,6 +4,7 @@
 
 //C++ system headers
 #include <iostream>
+#include <fstream>
 //Other libraries headers
 
 //Own components headers
@@ -65,7 +66,9 @@ void Deposit::handleEvent(sf::Event e, sf::RenderWindow*& _window) {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         if (_depostButton.isMouseHover(*_window)) {
             //getting informatin from textbox
-            std::cout << getData()<<"\n";
+            double sum = std::stod(getData());
+            _wallet.deposit(sum);
+            std::cout << _wallet.getBalance()<<"\n";
         }
     }
 

@@ -153,6 +153,7 @@
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="UI.cpp" />
+    <ClCompile Include="Wallet.cpp" />
     <ClCompile Include="Withdraw.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +164,7 @@
     <ClInclude Include="Text.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="Wallet.h" />
     <ClInclude Include="Withdraw.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

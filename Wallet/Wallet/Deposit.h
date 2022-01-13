@@ -9,6 +9,7 @@
 #include "Text.h"
 #include "TextBox.h"
 #include "Button.h"
+#include "Wallet.h"
 //Forward declarations
 
 class Deposit{
@@ -26,5 +27,7 @@ private:
 
 	Button _depostButton;
 	Button _backButton;
+
+	Wallet _wallet;
 };
 
