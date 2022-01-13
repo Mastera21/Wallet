@@ -47,7 +47,6 @@ void TextBox::handleEvent(sf::Event e) {
 		}
 	}
 }
-
 std::string TextBox::getText() {
 	return _text.str();
 }
@@ -71,7 +70,10 @@ void TextBox::setSelected(bool selected) {
 }
 void TextBox::inputLogic(int charType) {
 	if (charType != DELETE_KEY && charType != ENTER_KEY && charType != ESCAPE_KEY) {
-		_text << static_cast<char>(charType);
+		if (isdigit(charType)) {
+			int num = charType - '0';
+			_text << static_cast<int>(num);
+		}
 	}else if (charType == DELETE_KEY) {
 		if (_text.str().length() > 0) {
 			deleteLastChar();
