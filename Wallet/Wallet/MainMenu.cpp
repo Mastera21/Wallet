@@ -4,6 +4,8 @@
 
 //C++ system headers
 #include <iostream>
+#include <fstream>
+#include <iomanip> 
 //Other libraries headers
 
 //Own components headers
@@ -14,7 +16,8 @@ int32_t MainMenu::init() {
         return EXIT_FAILURE;
     }
 
-    if (EXIT_SUCCESS != _balanceText.init("fonts/Roboto-Thin.ttf", "Total Balance: 0.00", 20, sf::Color::White, sf::Vector2f(217, 100))) {
+    std::string balance = readFromFile();
+    if (EXIT_SUCCESS != _balanceText.init("fonts/Roboto-Thin.ttf", balance, 20, sf::Color::White, sf::Vector2f(217, 100))) {
         std::cerr << "_balanceText.init() failed.\n";
         return EXIT_FAILURE;
     }
@@ -73,4 +76,20 @@ void MainMenu::handleEvent(const sf::Event& e, sf::RenderWindow*& _window,  bool
             _isWithdrawButtonPressed = true;
         }
     }
+}
+std::string MainMenu::readFromFile() {
+    std::string balance = "Total Balance: ";
+
+    std::fstream file;
+    file.open("WalletAmount.txt");
+
+    if (file.fail()) {
+        std::cerr << "Cannot open this file\n";
+        exit(1);
+    }
+    int amount;
+    file >> amount;
+    balance += std::to_string(amount);
+
+    return balance;
 }

@@ -22,6 +22,8 @@ public:
 	void handleEvent(const sf::Event& e, sf::RenderWindow*& _window, bool& _isDepositButtonPressed, bool& _isWithdrawButtonPressed);
 
 private:
+	std::string readFromFile();
+
 	Text _walletText;
 	Text _balanceText;
 

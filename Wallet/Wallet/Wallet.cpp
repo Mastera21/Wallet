@@ -3,11 +3,13 @@
 
 //C++ system headers
 #include <iostream>
+#include <fstream>
 //Other libraries headers
 
 //Own components headers
 
 void Wallet::deposit(double num) {
+	//TODO
 	_balance += num;
 }
 void Wallet::withdraw(double num) {
@@ -18,5 +20,5 @@ void Wallet::withdraw(double num) {
 	_balance = result;
 }
 std::string Wallet::getBalance() {
-	return  std::to_string(_balance);
+	return std::to_string(_balance);
 }

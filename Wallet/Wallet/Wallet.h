@@ -16,6 +16,6 @@ public:
 	void withdraw(double num);
 	std::string getBalance();
 private:
-	double _balance;
+	double _balance = 0.0;
 };
 
