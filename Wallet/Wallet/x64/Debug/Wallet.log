@@ -1,10 +1,7 @@
 ﻿  Application.cpp
 C:\Users\user\GitHub Repositorys\Wallet\Wallet\Wallet\Application.cpp(68,49): warning C4805: '==': unsafe mix of type 'sf::Event::EventType' and type 'bool' in operation
   Deposit.cpp
-C:\Users\user\GitHub Repositorys\Wallet\Wallet\Wallet\Deposit.cpp(36,45): warning C4805: '==': unsafe mix of type 'sf::Event::EventType' and type 'bool' in operation
-C:\Users\user\GitHub Repositorys\Wallet\Wallet\Wallet\Deposit.cpp(39,45): warning C4805: '==': unsafe mix of type 'sf::Event::EventType' and type 'bool' in operation
   MainMenu.cpp
-  TextBox.cpp
   UI.cpp
   main.cpp
   Generating Code...

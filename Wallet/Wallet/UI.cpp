@@ -33,20 +33,16 @@ void UI::deinit() {
     _menu.deinit();
 }
 void UI::handleEvent(const sf::Event& e, sf::RenderWindow*& window) {
-    _menu.handleEvent(e, window, _isDepositButtonPressed, _isWithdrawButtonPressed);
-    _deposit.handleEvent(e);
-    _withdraw.handleEvent(e);
+   _menu.handleEvent(e, window, _isDepositButtonPressed, _isWithdrawButtonPressed);
+   _deposit.handleEvent(e, window);
+   _withdraw.handleEvent(e);   
 }
 void UI::draw(sf::RenderWindow* window) {
-    if (_isDepositButtonPressed) {
-        //create class Deposit
-        _deposit.draw(window);
-
-    }else if (_isWithdrawButtonPressed) {
-        //create class Withdraw
-        _withdraw.draw(window);
-
-    }else {
-        _menu.draw(window);
-    }
+   if (_isDepositButtonPressed) {
+       _deposit.draw(window);
+   }else if (_isWithdrawButtonPressed) {
+       _withdraw.draw(window);
+   }else {
+       _menu.draw(window);
+   }
 }

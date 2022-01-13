@@ -10,7 +10,7 @@
 
 int32_t Withdraw::init() {
     if (EXIT_SUCCESS != _withdrawText.init("fonts/Roboto-Black.ttf", "Withdraw", 36, sf::Color::White, sf::Vector2f(250, 50))) {
-        std::cerr << "_deposit.init() failed.\n";
+        std::cerr << "_withdrawText.init() failed.\n";
         return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
