@@ -17,6 +17,7 @@ public:
 	void deinit();
 	void draw(sf::RenderWindow* window);
 	void handleEvent(sf::Event e, sf::RenderWindow*& _window);
+	std::string getData();
 
 private:
 	Text _depositText;

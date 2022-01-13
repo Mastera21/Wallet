@@ -1,8 +1,2 @@
-﻿  Application.cpp
-C:\Users\user\GitHub Repositorys\Wallet\Wallet\Wallet\Application.cpp(68,49): warning C4805: '==': unsafe mix of type 'sf::Event::EventType' and type 'bool' in operation
-  Deposit.cpp
-  MainMenu.cpp
-  UI.cpp
-  main.cpp
-  Generating Code...
+﻿  Deposit.cpp
   Wallet.vcxproj -> C:\Users\user\GitHub Repositorys\Wallet\Wallet\x64\Debug\Wallet.exe

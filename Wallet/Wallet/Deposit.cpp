@@ -42,6 +42,9 @@ int32_t Deposit::init() {
 void Deposit::deinit() {
     
 }
+std::string Deposit::getData() {
+   return _textBox.getText();
+}
 void Deposit::draw(sf::RenderWindow* window) {
     _depositText.draw(*window);
     _textBox.draw(*window);
@@ -56,6 +59,13 @@ void Deposit::handleEvent(sf::Event e, sf::RenderWindow*& _window) {
             _depostButton.setBackColor(sf::Color::Green);
         }else {
             _depostButton.setBackColor(sf::Color::White);
+        }
+    }
+
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        if (_depostButton.isMouseHover(*_window)) {
+            //getting informatin from textbox
+            std::cout << getData()<<"\n";
         }
     }
 
