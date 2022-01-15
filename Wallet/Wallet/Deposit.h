@@ -22,6 +22,9 @@ public:
 
 private:
 	void storWalletInfo();
+	std::string readFromFile();
+
+	//int _amount = 0;
 
 	Text _depositText;
 	Text _text;

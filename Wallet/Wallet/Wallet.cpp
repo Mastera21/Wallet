@@ -8,17 +8,16 @@
 
 //Own components headers
 
-void Wallet::deposit(double num) {
-	//TODO
+void Wallet::deposit(int num) {
 	_balance += num;
 }
-void Wallet::withdraw(double num) {
+void Wallet::withdraw(int num) {
 	if (num > _balance) {
 		std::cerr << "Not enough money in this wallet\n";
 	}
-	double result = std::abs(_balance - num);
+	int result = std::abs(_balance - num);
 	_balance = result;
 }
-std::string Wallet::getBalance() {
-	return std::to_string(_balance);
+int Wallet::getBalance() {
+	return _balance;
 }

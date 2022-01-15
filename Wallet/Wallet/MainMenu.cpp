@@ -80,16 +80,15 @@ void MainMenu::handleEvent(const sf::Event& e, sf::RenderWindow*& _window,  bool
 std::string MainMenu::readFromFile() {
     std::string balance = "Total Balance: ";
 
-    std::fstream file;
-    file.open("WalletAmount.txt");
+    std::ifstream file ("WalletAmount.txt", std::ios::in);
 
     if (file.fail()) {
         std::cerr << "Cannot open this file\n";
         exit(1);
     }
-    int amount;
+    int amount = 0;
     file >> amount;
     balance += std::to_string(amount);
-
+    file.close();
     return balance;
 }

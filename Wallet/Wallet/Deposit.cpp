@@ -5,6 +5,7 @@
 //C++ system headers
 #include <iostream>
 #include <fstream>
+#include <string>
 //Other libraries headers
 
 //Own components headers
@@ -81,14 +82,35 @@ void Deposit::handleEvent(sf::Event e, sf::RenderWindow*& _window) {
         _textBox.handleEvent(e);
     }
 }
+std::string Deposit::readFromFile() {
+    std::string balance = "";
 
+    std::ifstream file("WalletAmount.txt", std::ios::in);
+
+    if (file.fail()) {
+        std::cerr << "Cannot open this file\n";
+        exit(1);
+    }
+    int amount = 0;
+    file >> amount;
+    balance += std::to_string(amount);
+    file.close();
+    return balance;
+}
 void Deposit::storWalletInfo() {
-    std::ofstream outFile;
-    outFile.open("WalletAmount.txt");
+    std::string inputFromFile = readFromFile();
+    int _amount = std::stoi(inputFromFile);
 
-    double sum = std::stod(getData());
-    _wallet.deposit(sum);
-    outFile << _wallet.getBalance();
+    std::fstream outFile ("WalletAmount.txt", std::ios::out);
 
-    outFile.close();
+    if (!outFile) {
+        std::cerr << "File not created!\n";
+    }else {
+        int sum = std::stoi(getData());
+        _wallet.deposit(sum);
+        _amount += sum;
+        outFile << _amount;
+
+        outFile.close();
+    }
 }

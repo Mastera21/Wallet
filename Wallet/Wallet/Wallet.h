@@ -12,10 +12,10 @@
 
 class Wallet{
 public:
-	void deposit(double num);
-	void withdraw(double num);
-	std::string getBalance();
+	void deposit(int num);
+	void withdraw(int num);
+	int getBalance();
 private:
-	double _balance = 0.0;
+	int _balance = 0;
 };
 
