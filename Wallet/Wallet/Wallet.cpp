@@ -36,7 +36,7 @@ void Wallet::storWalletInfo() {
 void Wallet::deposit(int num) {
     std::string inputFromFile = readFromFile();
     _balance = std::stoi(inputFromFile);
-	_balance += num;
+	_balance = _balance + num;
     storWalletInfo();
 }
 void Wallet::withdraw(int num) {
