@@ -67,7 +67,8 @@ void Deposit::handleEvent(sf::Event e, sf::RenderWindow*& _window) {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         if (_depostButton.isMouseHover(*_window)) {
             //getting informatin from textbox
-            storWalletInfo();
+            int sum = std::stoi(getData());
+            _wallet.deposit(sum);
         }
     }
 
@@ -80,37 +81,5 @@ void Deposit::handleEvent(sf::Event e, sf::RenderWindow*& _window) {
     }
     if (e.type == sf::Event::TextEntered) {
         _textBox.handleEvent(e);
-    }
-}
-std::string Deposit::readFromFile() {
-    std::string balance = "";
-
-    std::ifstream file("WalletAmount.txt", std::ios::in);
-
-    if (file.fail()) {
-        std::cerr << "Cannot open this file\n";
-        exit(1);
-    }
-    int amount = 0;
-    file >> amount;
-    balance += std::to_string(amount);
-    file.close();
-    return balance;
-}
-void Deposit::storWalletInfo() {
-    std::string inputFromFile = readFromFile();
-    int _amount = std::stoi(inputFromFile);
-
-    std::fstream outFile ("WalletAmount.txt", std::ios::out);
-
-    if (!outFile) {
-        std::cerr << "File not created!\n";
-    }else {
-        int sum = std::stoi(getData());
-        _wallet.deposit(sum);
-        _amount += sum;
-        outFile << _amount;
-
-        outFile.close();
     }
 }

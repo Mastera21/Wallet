@@ -16,6 +16,9 @@ public:
 	void withdraw(int num);
 	int getBalance();
 private:
+	std::string readFromFile();
+	void storWalletInfo();
+
 	int _balance = 0;
 };
 
