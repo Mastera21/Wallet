@@ -54,7 +54,7 @@ void Deposit::draw(sf::RenderWindow* window) {
     _depostButton.draw(*window);
     _backButton.draw(*window);
 }
-void Deposit::handleEvent(sf::Event e, sf::RenderWindow*& _window) {
+void Deposit::handleEvent(sf::Event e, sf::RenderWindow*& _window, bool& _isBackButtonPressed) {
 
     if (e.type == sf::Event::MouseMoved) {
         if (_depostButton.isMouseHover(*_window)) {
@@ -79,6 +79,13 @@ void Deposit::handleEvent(sf::Event e, sf::RenderWindow*& _window) {
             _backButton.setBackColor(sf::Color::White);
         }
     }
+
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        if (_backButton.isMouseHover(*_window)) {
+            _isBackButtonPressed = true;
+        }
+    }
+
     if (e.type == sf::Event::TextEntered) {
         _textBox.handleEvent(e);
     }

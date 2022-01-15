@@ -48,7 +48,7 @@ void Withdraw::draw(sf::RenderWindow* window) {
     _withdrawButton.draw(*window);
     _backButton.draw(*window);
 }
-void Withdraw::handleEvent(sf::Event e, sf::RenderWindow*& _window) {
+void Withdraw::handleEvent(sf::Event e, sf::RenderWindow*& _window, bool& _isBackButtonPressed) {
     if (e.type == sf::Event::MouseMoved) {
         if (_withdrawButton.isMouseHover(*_window)) {
             _withdrawButton.setBackColor(sf::Color::Green);
@@ -72,6 +72,13 @@ void Withdraw::handleEvent(sf::Event e, sf::RenderWindow*& _window) {
             _backButton.setBackColor(sf::Color::White);
         }
     }
+
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        if (_backButton.isMouseHover(*_window)) {
+            _isBackButtonPressed = true;
+        }
+    }
+
     if (e.type == sf::Event::TextEntered) {
         _textBox.handleEvent(e);
     }

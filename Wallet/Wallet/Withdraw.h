@@ -17,7 +17,7 @@ public:
 	int32_t init();
 	void deinit();
 	void draw(sf::RenderWindow* window);
-	void handleEvent(sf::Event e, sf::RenderWindow*& _window);
+	void handleEvent(sf::Event e, sf::RenderWindow*& _window, bool& _isBackButtonPressed);
 	std::string getData();
 
 private:

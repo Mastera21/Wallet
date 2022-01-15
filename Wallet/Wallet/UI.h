@@ -26,5 +26,6 @@ private:
 
 	bool _isDepositButtonPressed = false;
 	bool _isWithdrawButtonPressed = false;
+	bool _isBackButtonPressed = false;
 };
 

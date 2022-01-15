@@ -55,13 +55,15 @@ void MainMenu::handleEvent(const sf::Event& e, sf::RenderWindow*& _window,  bool
             _depostButton.setBackColor(sf::Color::White);
         }
     }
+
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         if (_depostButton.isMouseHover(*_window)) {
             //std::cout << "_depostButton was Presed\n";
             _isDepositButtonPressed = true;
+
         }
     }
-
+ 
     if (sf::Event::MouseMoved) {
         if (_withdrawButton.isMouseHover(*_window)) {
             _withdrawButton.setBackColor(sf::Color::Green);
