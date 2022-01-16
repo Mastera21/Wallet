@@ -49,6 +49,3 @@ void Wallet::withdraw(int num) {
 	_balance = result;
     storWalletInfo();
 }
-int Wallet::getBalance() {
-	return _balance;
-}

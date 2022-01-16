@@ -43,7 +43,6 @@ bool Application::update() {
             return true;
             break;
         }
-
         handleEvent(e, _window);
     }
     return false;

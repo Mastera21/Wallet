@@ -9,7 +9,7 @@
 //Own components headers
 
 int32_t Withdraw::init() {
-    if (EXIT_SUCCESS != _withdrawText.init("fonts/Roboto-Black.ttf", "Withdraw", 36, sf::Color::White, sf::Vector2f(250, 50))) {
+    if (EXIT_SUCCESS != _withdrawText.init("fonts/Roboto-Black.ttf", "Withdraw", 36, sf::Color::White, sf::Vector2f(225, 50))) {
         std::cerr << "_withdrawText.init() failed.\n";
         return EXIT_FAILURE;
     }

@@ -13,6 +13,9 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="interface">
+      <UniqueIdentifier>{4907c546-3b90-49e2-b433-5c94dc7df5e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -43,6 +46,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="Wallet.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="BalanceTextInterface.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

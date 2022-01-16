@@ -1,6 +1,4 @@
 #pragma once
-
-
 //C system headers
 
 //C++ system headers
@@ -11,7 +9,6 @@
 #include "Text.h"
 #include "Button.h"
 #include "TextBox.h"
-
 //Forward declarations
 
 class MainMenu{

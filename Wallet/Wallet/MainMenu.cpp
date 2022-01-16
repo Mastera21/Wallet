@@ -60,7 +60,6 @@ void MainMenu::handleEvent(const sf::Event& e, sf::RenderWindow*& _window,  bool
         if (_depostButton.isMouseHover(*_window)) {
             //std::cout << "_depostButton was Presed\n";
             _isDepositButtonPressed = true;
-
         }
     }
  
