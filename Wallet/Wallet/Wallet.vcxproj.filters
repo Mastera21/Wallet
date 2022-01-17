@@ -48,9 +48,6 @@
     <ClCompile Include="Wallet.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="BalanceTextInterface.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Text.h">
@@ -79,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="Wallet.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateBalanceText.h">
+      <Filter>interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

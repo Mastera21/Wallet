@@ -10,13 +10,19 @@
 
 //Own components headers
 
-int32_t MainMenu::init() {
+int32_t MainMenu::init(UpdateBalanceText* updateBalanceText) {
     if (EXIT_SUCCESS != _walletText.init("fonts/Roboto-Black.ttf", "Wallet", 36, sf::Color::White, sf::Vector2f(250, 50))) {
         std::cerr << "_walletText.init() failed.\n";
         return EXIT_FAILURE;
     }
 
-    std::string balance = readFromFile();
+    _updateBalanceText = updateBalanceText;
+    if (_updateBalanceText == nullptr) {
+        std::cerr << "_updateBalanceText is nullptr\n";
+        return EXIT_FAILURE;
+    }
+
+    std::string balance = _updateBalanceText->updateText(_balance);
     if (EXIT_SUCCESS != _balanceText.init("fonts/Roboto-Thin.ttf", balance, 20, sf::Color::White, sf::Vector2f(217, 100))) {
         std::cerr << "_balanceText.init() failed.\n";
         return EXIT_FAILURE;
@@ -77,19 +83,4 @@ void MainMenu::handleEvent(const sf::Event& e, sf::RenderWindow*& _window,  bool
             _isWithdrawButtonPressed = true;
         }
     }
-}
-std::string MainMenu::readFromFile() {
-    std::string balance = "Total Balance: ";
-
-    std::ifstream file ("WalletAmount.txt", std::ios::in);
-
-    if (file.fail()) {
-        std::cerr << "Cannot open this file\n";
-        exit(1);
-    }
-    int amount = 0;
-    file >> amount;
-    balance += std::to_string(amount);
-    file.close();
-    return balance;
 }

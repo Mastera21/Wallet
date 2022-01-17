@@ -52,16 +52,14 @@ void Application::handleEvent(sf::Event& e, sf::RenderWindow*& window) {
 }
 void Application::draw() {
     _window->clear(sf::Color::Black);
-    
+
     _ui.draw(_window);
 
     _window->display();
 }
 void Application::deinit() {
     _ui.deinit();
-    if (_window) {
-        delete _window;
-    }
+    delete _window;
 }
 bool Application::checkForExit(sf::Event& e) {
     return (e.type == sf::Keyboard::isKeyPressed(sf::Keyboard::Escape));

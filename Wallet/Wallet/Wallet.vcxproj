@@ -146,7 +146,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="BalanceTextInterface.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Deposit.cpp" />
     <ClCompile Include="main.cpp" />
@@ -165,6 +164,7 @@
     <ClInclude Include="Text.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="UpdateBalanceText.h" />
     <ClInclude Include="Wallet.h" />
     <ClInclude Include="Withdraw.h" />
   </ItemGroup>

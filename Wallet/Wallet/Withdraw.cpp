@@ -41,14 +41,14 @@ int32_t Withdraw::init() {
 void Withdraw::deinit() {
 
 }
-void Withdraw::draw(sf::RenderWindow* window) {
+void Withdraw::draw(sf::RenderWindow*& window) {
     _withdrawText.draw(*window);
     _textBox.draw(*window);
     _text.draw(*window);
     _withdrawButton.draw(*window);
     _backButton.draw(*window);
 }
-void Withdraw::handleEvent(sf::Event e, sf::RenderWindow*& _window, bool& _isBackButtonPressed) {
+void Withdraw::handleEvent(sf::Event& e, sf::RenderWindow*& _window, bool& _isBackButtonPressed) {
     if (e.type == sf::Event::MouseMoved) {
         if (_withdrawButton.isMouseHover(*_window)) {
             _withdrawButton.setBackColor(sf::Color::Green);
@@ -61,6 +61,7 @@ void Withdraw::handleEvent(sf::Event e, sf::RenderWindow*& _window, bool& _isBac
         if (_withdrawButton.isMouseHover(*_window)) {
             //getting informatin from textbox
             int sum = std::stoi(getData());
+            std::cout << "user withdraw: " << sum << "\n";
             _wallet.withdraw(sum);
         }
     }

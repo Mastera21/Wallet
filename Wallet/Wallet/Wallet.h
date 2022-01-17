@@ -14,6 +14,7 @@ class Wallet{
 public:
 	void deposit(int num);
 	void withdraw(int num);
+
 private:
 	std::string readFromFile();
 	void storWalletInfo();

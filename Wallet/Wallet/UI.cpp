@@ -9,7 +9,7 @@
 //Own components headers
 
 int32_t UI::init() {
-    if (EXIT_SUCCESS != _menu.init()) {
+    if (EXIT_SUCCESS != _menu.init(this)) {
         std::cerr << "_menu.init() failed.\n";
         return EXIT_FAILURE;
     }
@@ -33,7 +33,7 @@ void UI::deinit() {
     _deposit.deinit();
     _menu.deinit();
 }
-void UI::handleEvent(const sf::Event& e, sf::RenderWindow*& window) {
+void UI::handleEvent(sf::Event& e, sf::RenderWindow*& window) {
    if (!_isBackButtonPressed) {
        if (_isDepositButtonPressed) {
            _deposit.handleEvent(e, window, _isBackButtonPressed);
@@ -42,17 +42,9 @@ void UI::handleEvent(const sf::Event& e, sf::RenderWindow*& window) {
        }else {
           _menu.handleEvent(e, window, _isDepositButtonPressed, _isWithdrawButtonPressed);
        }
-   }else {
-       if (!_isDepositButtonPressed) {
-           _deposit.handleEvent(e, window, _isBackButtonPressed);
-       }else if(!_isWithdrawButtonPressed){
-           _withdraw.handleEvent(e, window, _isBackButtonPressed);
-       }else {
-           _menu.handleEvent(e, window, _isDepositButtonPressed, _isWithdrawButtonPressed);
-       }
    }
 }
-void UI::draw(sf::RenderWindow* window) {
+void UI::draw(sf::RenderWindow*& window) {
    if (!_isBackButtonPressed) {
        if (_isDepositButtonPressed) {
            _deposit.draw(window);
@@ -62,9 +54,32 @@ void UI::draw(sf::RenderWindow* window) {
            _menu.draw(window);
        }
    }else {
+       window->clear();
+       std::cout<<updateText(_balance)<<"\n";
+
        _menu.draw(window);
        _isDepositButtonPressed = false;
        _isWithdrawButtonPressed = false;
        _isBackButtonPressed = false;
    }
+}
+std::string UI::readFromFile() {
+    std::string xbalance = "Total Balance: ";
+
+    std::ifstream file("WalletAmount.txt", std::ios::in);
+
+    if (file.fail()) {
+        std::cerr << "Cannot open this file\n";
+        exit(1);
+    }
+    int amount = 0;
+    file >> amount;
+    xbalance.append(std::to_string(amount));
+    file.close();
+    return xbalance;
+}
+std::string UI::updateText(std::string& input) {
+    std::string read = readFromFile();
+    input = read;
+    return input;
 }

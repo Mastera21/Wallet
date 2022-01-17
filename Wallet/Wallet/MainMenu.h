@@ -9,17 +9,20 @@
 #include "Text.h"
 #include "Button.h"
 #include "TextBox.h"
+#include "UpdateBalanceText.h"
 //Forward declarations
 
-class MainMenu{
+class MainMenu {
 public:
-	int32_t init();
+	int32_t init(UpdateBalanceText* updateBalanceText);
 	void deinit();
 	void draw(sf::RenderWindow* _window);
 	void handleEvent(const sf::Event& e, sf::RenderWindow*& _window, bool& _isDepositButtonPressed, bool& _isWithdrawButtonPressed);
 
 private:
-	std::string readFromFile();
+	std::string _balance = "";
+
+	UpdateBalanceText* _updateBalanceText = nullptr;
 
 	Text _walletText;
 	Text _balanceText;
