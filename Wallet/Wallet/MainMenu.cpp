@@ -64,7 +64,6 @@ void MainMenu::handleEvent(const sf::Event& e, sf::RenderWindow*& _window,  bool
 
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         if (_depostButton.isMouseHover(*_window)) {
-            //std::cout << "_depostButton was Presed\n";
             _isDepositButtonPressed = true;
         }
     }
@@ -79,7 +78,6 @@ void MainMenu::handleEvent(const sf::Event& e, sf::RenderWindow*& _window,  bool
 
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         if (_withdrawButton.isMouseHover(*_window)) {
-           // std::cout << "_withdrawButton was Presed\n";
             _isWithdrawButtonPressed = true;
         }
     }

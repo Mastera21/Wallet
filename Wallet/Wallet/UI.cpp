@@ -54,7 +54,6 @@ void UI::draw(sf::RenderWindow*& window) {
            _menu.draw(window);
        }
    }else {
-       window->clear();
        std::cout<<updateText(_balance)<<"\n";
 
        _menu.draw(window);
@@ -69,7 +68,7 @@ std::string UI::readFromFile() {
     std::ifstream file("WalletAmount.txt", std::ios::in);
 
     if (file.fail()) {
-        std::cerr << "Cannot open this file\n";
+        std::cerr << "Cannot open WalletAmount.txt file\n";
         exit(1);
     }
     int amount = 0;

@@ -25,7 +25,7 @@ private:
 	Deposit _deposit;
 	Withdraw _withdraw;
 	
-	std::string updateText(std::string& input) override;
+	std::string updateText(std::string& input) final;
 
 	std::string readFromFile();
 	std::string _balance;

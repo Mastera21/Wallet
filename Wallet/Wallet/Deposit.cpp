@@ -12,12 +12,12 @@
 
 int32_t Deposit::init() {
     if (EXIT_SUCCESS != _depositText.init("fonts/Roboto-Black.ttf", "Deposit", 36, sf::Color::White, sf::Vector2f(230, 50))) {
-        std::cerr << "_deposit.init() failed.\n";
+        std::cerr << "_depositText.init() failed.\n";
         return EXIT_FAILURE;
     }
 
     if (EXIT_SUCCESS != _text.init("fonts/Roboto-Thin.ttf", "Amount here:", 20, sf::Color::White, sf::Vector2f(200, 220))) {
-        std::cerr << "_deposit.init() failed.\n";
+        std::cerr << "_text.init() failed.\n";
         return EXIT_FAILURE;
     }
 
@@ -34,7 +34,7 @@ int32_t Deposit::init() {
     _depostButton.setPos(sf::Vector2f(200, 500));
 
     if (EXIT_SUCCESS != _backButton.init("fonts/Roboto-Thin.ttf", "back", sf::Vector2f(70, 40), 20, sf::Color::White, sf::Color::Black)) {
-        std::cerr << "_depostButton.init() failed.\n";
+        std::cerr << "_backButton.init() failed.\n";
         return EXIT_FAILURE;
     }
     _backButton.setPos(sf::Vector2f(50, 510));

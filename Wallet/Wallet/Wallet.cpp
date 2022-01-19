@@ -14,7 +14,7 @@ std::string Wallet::readFromFile() {
     std::ifstream file("WalletAmount.txt", std::ios::in);
 
     if (file.fail()) {
-        std::cerr << "Cannot open this file\n";
+        std::cerr << "Cannot open WalletAmount.txt file\n";
         exit(1);
     }
     int amount = 0;
@@ -27,7 +27,7 @@ void Wallet::storWalletInfo() {
     std::fstream outFile("WalletAmount.txt", std::ios::out);
 
     if (!outFile) {
-        std::cerr << "File not created!\n";
+        std::cerr << "Cannot open WalletAmount.txt file\n";
     }else {
         outFile << _balance;
         outFile.close();
@@ -43,7 +43,7 @@ void Wallet::withdraw(int num) {
     std::string inputFromFile = readFromFile();
     _balance = std::stoi(inputFromFile);
 	if (num > _balance) {
-		std::cerr << "Not enough money in this wallet\n";
+		std::cerr << "Sum is bigger then total amount\n";
 	}
 	int result = std::abs(_balance - num);
 	_balance = result;
