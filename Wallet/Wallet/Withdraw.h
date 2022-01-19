@@ -21,8 +21,14 @@ public:
 	std::string getData();
 
 private:
+
+	bool _isBigger = false;
+	bool isSumBiggerThenBalance(int sum);
+
 	Text _withdrawText;
 	Text _text;
+	Text _textError;
+
 	TextBox _textBox;
 
 	Button _withdrawButton;

@@ -15,7 +15,12 @@ int32_t Withdraw::init() {
     }
 
     if (EXIT_SUCCESS != _text.init("fonts/Roboto-Thin.ttf", "Amount here:", 20, sf::Color::White, sf::Vector2f(200, 220))) {
-        std::cerr << "_deposit.init() failed.\n";
+        std::cerr << "_text.init() failed.\n";
+        return EXIT_FAILURE;
+    }
+
+    if (EXIT_SUCCESS != _textError.init("fonts/Roboto-Thin.ttf", "Not enough money in this wallet", 20, sf::Color::Red, sf::Vector2f(200, 280))) {
+        std::cerr << "_textError.init() failed.\n";
         return EXIT_FAILURE;
     }
 
@@ -26,13 +31,13 @@ int32_t Withdraw::init() {
     _textBox.setLimit(true, 10);
 
     if (EXIT_SUCCESS != _withdrawButton.init("fonts/Roboto-Thin.ttf", "Withdraw", sf::Vector2f(200, 50), 20, sf::Color::White, sf::Color::Black)) {
-        std::cerr << "_depostButton.init() failed.\n";
+        std::cerr << "_withdrawButton.init() failed.\n";
         return EXIT_FAILURE;
     }
     _withdrawButton.setPos(sf::Vector2f(200, 500));
 
     if (EXIT_SUCCESS != _backButton.init("fonts/Roboto-Thin.ttf", "back", sf::Vector2f(70, 40), 20, sf::Color::White, sf::Color::Black)) {
-        std::cerr << "_depostButton.init() failed.\n";
+        std::cerr << "_backButton.init() failed.\n";
         return EXIT_FAILURE;
     }
     _backButton.setPos(sf::Vector2f(50, 510));
@@ -47,6 +52,9 @@ void Withdraw::draw(sf::RenderWindow*& window) {
     _text.draw(*window);
     _withdrawButton.draw(*window);
     _backButton.draw(*window);
+    if (_isBigger) {
+        _textError.draw(*window);
+    }
 }
 void Withdraw::handleEvent(sf::Event& e, sf::RenderWindow*& _window, bool& _isBackButtonPressed) {
     if (e.type == sf::Event::MouseMoved) {
@@ -62,7 +70,13 @@ void Withdraw::handleEvent(sf::Event& e, sf::RenderWindow*& _window, bool& _isBa
             //getting informatin from textbox
             int sum = std::stoi(getData());
             std::cout << "user withdraw: " << sum << "\n";
-            _wallet.withdraw(sum);
+
+            if (isSumBiggerThenBalance(sum)) {
+                _isBigger = true;
+            }else {
+                _isBigger = false;
+                _wallet.withdraw(sum);
+            }
         }
     }
 
@@ -86,4 +100,14 @@ void Withdraw::handleEvent(sf::Event& e, sf::RenderWindow*& _window, bool& _isBa
 }
 std::string Withdraw::getData() {
     return _textBox.getText();
+}
+bool Withdraw::isSumBiggerThenBalance(int sum) {
+    int balance = 0;
+    std::string amount = _wallet.readFromFile();
+    balance = std::stoi(amount);
+
+    if (sum > balance) {
+        return true;
+    }
+    return false;
 }
