@@ -3,9 +3,9 @@
 # Description:
 -This is basic project wallet for deposit and withdraw money.
 
-Run project:
+# Run project:
 -Open Wallet file -> Wallet -> x64 -> Release -> Wallet.exe
 
-Using tools:
+# Using tools:
 -SFML (Simple and Fast Multimedia Library).
 -C++14 Standard.
