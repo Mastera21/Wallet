@@ -7,5 +7,5 @@
 -Open Wallet file -> Wallet -> x64 -> Release -> Wallet.exe
 
 # Using tools:
--SFML (Simple and Fast Multimedia Library).
+-SFML (Simple and Fast Multimedia Library). \n
 -C++14 Standard.
