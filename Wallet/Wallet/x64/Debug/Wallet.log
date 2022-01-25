@@ -1,2 +1,22 @@
-﻿  UI.cpp
+﻿  Application.cpp
+C:\Users\user\GitHub Repositorys\Wallet\Wallet\Wallet\Application.cpp(67,49): warning C4805: '==': unsafe mix of type 'sf::Event::EventType' and type 'bool' in operation
+  Button.cpp
+C:\Users\user\GitHub Repositorys\Wallet\Wallet\Wallet\Button.cpp(48,15): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\user\GitHub Repositorys\Wallet\Wallet\Wallet\Button.cpp(49,15): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Deposit.cpp
+  MainMenu.cpp
+  Text.cpp
+  UI.cpp
+  Wallet.cpp
+  Withdraw.cpp
+  main.cpp
+  Generating Code...
   Wallet.vcxproj -> C:\Users\user\GitHub Repositorys\Wallet\Wallet\x64\Debug\Wallet.exe

@@ -80,6 +80,9 @@
     <ClInclude Include="UpdateBalanceText.h">
       <Filter>interface</Filter>
     </ClInclude>
+    <ClInclude Include="UpdateBalanceTextInterface.h">
+      <Filter>interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="WalletAmount.txt">

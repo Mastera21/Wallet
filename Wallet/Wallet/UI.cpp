@@ -8,7 +8,12 @@
 
 //Own components headers
 
-int32_t UI::init() {
+int32_t UI::init(UpdateBalanceTextInterface* updateBalanceText) {
+    _updateBalanceText = updateBalanceText;
+    if (_updateBalanceText == nullptr) {
+        std::cerr << "_updateBalanceText is nullptr\n";
+        return EXIT_FAILURE;
+    }
     if (EXIT_SUCCESS != _menu.init(this)) {
         std::cerr << "_menu.init() failed.\n";
         return EXIT_FAILURE;
@@ -54,7 +59,7 @@ void UI::draw(sf::RenderWindow*& window) {
            _menu.draw(window);
        }
    }else {
-       std::cout<<updateText(_balance)<<"\n";
+       std::cout << updateText() << "\n";
 
        _menu.draw(window);
        _isDepositButtonPressed = false;
@@ -62,23 +67,6 @@ void UI::draw(sf::RenderWindow*& window) {
        _isBackButtonPressed = false;
    }
 }
-std::string UI::readFromFile() {
-    std::string xbalance = "Total Balance: ";
-
-    std::ifstream file("WalletAmount.txt", std::ios::in);
-
-    if (file.fail()) {
-        std::cerr << "Cannot open WalletAmount.txt file\n";
-        exit(1);
-    }
-    int amount = 0;
-    file >> amount;
-    xbalance.append(std::to_string(amount));
-    file.close();
-    return xbalance;
-}
-std::string UI::updateText(std::string& input) {
-    std::string read = readFromFile();
-    input = read;
-    return input;
+std::string UI::updateText() {
+    return _updateBalanceText->updateBalanceTextInterface();
 }

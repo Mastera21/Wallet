@@ -11,12 +11,13 @@
 //Own components headers
 
 int32_t Deposit::init() {
-    if (EXIT_SUCCESS != _depositText.init("fonts/Roboto-Black.ttf", "Deposit", 36, sf::Color::White, sf::Vector2f(230, 50))) {
+    std::string textDeposit = "Deposit";
+    if (EXIT_SUCCESS != _depositText.init("fonts/Roboto-Black.ttf", textDeposit, 36, sf::Color::White, sf::Vector2f(230, 50))) {
         std::cerr << "_depositText.init() failed.\n";
         return EXIT_FAILURE;
     }
-
-    if (EXIT_SUCCESS != _text.init("fonts/Roboto-Thin.ttf", "Amount here:", 20, sf::Color::White, sf::Vector2f(200, 220))) {
+    std::string textAmount = "Amount here:";
+    if (EXIT_SUCCESS != _text.init("fonts/Roboto-Thin.ttf", textAmount, 20, sf::Color::White, sf::Vector2f(200, 220))) {
         std::cerr << "_text.init() failed.\n";
         return EXIT_FAILURE;
     }

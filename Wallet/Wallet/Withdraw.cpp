@@ -9,17 +9,18 @@
 //Own components headers
 
 int32_t Withdraw::init() {
-    if (EXIT_SUCCESS != _withdrawText.init("fonts/Roboto-Black.ttf", "Withdraw", 36, sf::Color::White, sf::Vector2f(225, 50))) {
+    std::string textWithdraw = "Withdraw";
+    if (EXIT_SUCCESS != _withdrawText.init("fonts/Roboto-Black.ttf", textWithdraw, 36, sf::Color::White, sf::Vector2f(225, 50))) {
         std::cerr << "_withdrawText.init() failed.\n";
         return EXIT_FAILURE;
     }
-
-    if (EXIT_SUCCESS != _text.init("fonts/Roboto-Thin.ttf", "Amount here:", 20, sf::Color::White, sf::Vector2f(200, 220))) {
+    std::string textAmount = "Amount here:";
+    if (EXIT_SUCCESS != _text.init("fonts/Roboto-Thin.ttf", textAmount, 20, sf::Color::White, sf::Vector2f(200, 220))) {
         std::cerr << "_text.init() failed.\n";
         return EXIT_FAILURE;
     }
-
-    if (EXIT_SUCCESS != _textError.init("fonts/Roboto-Thin.ttf", "Not enough money in this wallet", 20, sf::Color::Red, sf::Vector2f(200, 280))) {
+    std::string textNoMoney = "Not enough money in this wallet";
+    if (EXIT_SUCCESS != _textError.init("fonts/Roboto-Thin.ttf", textNoMoney, 20, sf::Color::Red, sf::Vector2f(200, 280))) {
         std::cerr << "_textError.init() failed.\n";
         return EXIT_FAILURE;
     }

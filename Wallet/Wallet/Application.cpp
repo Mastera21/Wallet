@@ -15,7 +15,7 @@ void Application::init() {
 
     _window = new sf::RenderWindow(sf::VideoMode(W, H), "Wallet");
 
-    if (EXIT_SUCCESS != _ui.init()) {
+    if (EXIT_SUCCESS != _ui.init(this)) {
         std::cerr << "_ui.init() failed.\n";
     }
 }
@@ -43,6 +43,8 @@ bool Application::update() {
             return true;
             break;
         }
+        updateBalanceTextInterface();
+
         handleEvent(e, _window);
     }
     return false;
@@ -63,4 +65,23 @@ void Application::deinit() {
 }
 bool Application::checkForExit(sf::Event& e) {
     return (e.type == sf::Keyboard::isKeyPressed(sf::Keyboard::Escape));
+}
+std::string Application::readFromFile() {
+    std::string xbalance = "Total Balance: ";
+
+    std::ifstream file("WalletAmount.txt", std::ios::in);
+
+    if (file.fail()) {
+        std::cerr << "Cannot open WalletAmount.txt file\n";
+        exit(1);
+    }
+    int amount = 0;
+    file >> amount;
+    xbalance.append(std::to_string(amount));
+    file.close();
+    return xbalance;
+}
+std::string Application::updateBalanceTextInterface() {
+    std::string read = readFromFile();
+    return read;
 }

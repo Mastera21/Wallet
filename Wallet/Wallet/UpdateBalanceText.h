@@ -12,5 +12,5 @@
 class UpdateBalanceText {
 public:
 	virtual ~UpdateBalanceText() = default;
-	virtual std::string updateText(std::string& input) = 0;
+	virtual std::string updateText() = 0;
 };
