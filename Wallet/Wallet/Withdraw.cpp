@@ -47,7 +47,7 @@ int32_t Withdraw::init() {
 void Withdraw::deinit() {
 
 }
-void Withdraw::draw(sf::RenderWindow*& window) {
+void Withdraw::draw(std::shared_ptr<sf::RenderWindow>& window) {
     _withdrawText.draw(*window);
     _textBox.draw(*window);
     _text.draw(*window);
@@ -57,7 +57,7 @@ void Withdraw::draw(sf::RenderWindow*& window) {
         _textError.draw(*window);
     }
 }
-void Withdraw::handleEvent(sf::Event& e, sf::RenderWindow*& _window, bool& _isBackButtonPressed) {
+void Withdraw::handleEvent(sf::Event& e, std::shared_ptr<sf::RenderWindow>& _window, bool& _isBackButtonPressed) {
     if (e.type == sf::Event::MouseMoved) {
         if (_withdrawButton.isMouseHover(*_window)) {
             _withdrawButton.setBackColor(sf::Color::Green);

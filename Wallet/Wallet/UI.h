@@ -17,8 +17,8 @@ class UI : public UpdateBalanceText {
 public:
 	int32_t init(UpdateBalanceTextInterface* test);
 	void deinit();
-	void draw(sf::RenderWindow*& window);
-	void handleEvent(sf::Event& e, sf::RenderWindow*& window);
+	void draw(std::shared_ptr<sf::RenderWindow>& window);
+	void handleEvent(sf::Event& e, std::shared_ptr<sf::RenderWindow>& window);
 private:
 	std::string updateText() final;
 

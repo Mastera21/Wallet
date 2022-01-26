@@ -13,7 +13,7 @@ void Application::init() {
     const int W = 600;
     const int H = 600;
 
-    _window = new sf::RenderWindow(sf::VideoMode(W, H), "Wallet");
+    _window = std::make_shared<sf::RenderWindow>(sf::VideoMode(W, H), "Wallet");
 
     if (EXIT_SUCCESS != _ui.init(this)) {
         std::cerr << "_ui.init() failed.\n";
@@ -49,7 +49,7 @@ bool Application::update() {
     }
     return false;
 }
-void Application::handleEvent(sf::Event& e, sf::RenderWindow*& window) {
+void Application::handleEvent(sf::Event& e, std::shared_ptr<sf::RenderWindow>& window) {
     _ui.handleEvent(e, window);
 }
 void Application::draw() {
@@ -61,7 +61,6 @@ void Application::draw() {
 }
 void Application::deinit() {
     _ui.deinit();
-    delete _window;
 }
 bool Application::checkForExit(sf::Event& e) {
     return (e.type == sf::Keyboard::isKeyPressed(sf::Keyboard::Escape));

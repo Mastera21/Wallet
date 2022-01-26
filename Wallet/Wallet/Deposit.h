@@ -16,8 +16,8 @@ class Deposit{
 public:
 	int32_t init();
 	void deinit();
-	void draw(sf::RenderWindow*& window);
-	void handleEvent(sf::Event& e, sf::RenderWindow*& _window, bool& _isBackButtonPressed);
+	void draw(std::shared_ptr<sf::RenderWindow>& window);
+	void handleEvent(sf::Event& e, std::shared_ptr<sf::RenderWindow>& _window, bool& _isBackButtonPressed);
 	std::string getData();
 private:
 	Text _depositText;

@@ -16,8 +16,8 @@ class MainMenu{
 public:
 	int32_t init(UpdateBalanceText* updateBalanceText);
 	void deinit();
-	void draw(sf::RenderWindow* _window);
-	void handleEvent(const sf::Event& e, sf::RenderWindow*& _window, bool& _isDepositButtonPressed, bool& _isWithdrawButtonPressed);
+	void draw(std::shared_ptr<sf::RenderWindow>& _window);
+	void handleEvent(const sf::Event& e, std::shared_ptr<sf::RenderWindow>& _window, bool& _isDepositButtonPressed, bool& _isWithdrawButtonPressed);
 private:
 	UpdateBalanceText* _updateBalanceText = nullptr;
 

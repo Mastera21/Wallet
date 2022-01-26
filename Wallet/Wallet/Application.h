@@ -4,6 +4,7 @@
 
 //C++ system headers
 #include <fstream>
+#include <memory>
 //Other libraries headers
 
 //Own components headers
@@ -19,14 +20,14 @@ private:
 	void main();
 	bool update();
 	void draw();
-	void handleEvent(sf::Event& e, sf::RenderWindow*& window);
+	void handleEvent(sf::Event& e, std::shared_ptr<sf::RenderWindow>& window);
 	bool checkForExit(sf::Event& e);
 	void deinit();
 
 	std::string readFromFile();
 	std::string updateBalanceTextInterface() final;
 
-	sf::RenderWindow* _window = nullptr;
+	std::shared_ptr<sf::RenderWindow> _window = nullptr;
 	UI _ui;
 };
 

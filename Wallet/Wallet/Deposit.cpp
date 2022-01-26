@@ -48,14 +48,14 @@ void Deposit::deinit() {
 std::string Deposit::getData() {
    return _textBox.getText();
 }
-void Deposit::draw(sf::RenderWindow*& window) {
+void Deposit::draw(std::shared_ptr<sf::RenderWindow>& window) {
     _depositText.draw(*window);
     _textBox.draw(*window);
     _text.draw(*window);
     _depostButton.draw(*window);
     _backButton.draw(*window);
 }
-void Deposit::handleEvent(sf::Event& e, sf::RenderWindow*& _window, bool& _isBackButtonPressed) {
+void Deposit::handleEvent(sf::Event& e, std::shared_ptr<sf::RenderWindow>& _window, bool& _isBackButtonPressed) {
 
     if (e.type == sf::Event::MouseMoved) {
         if (_depostButton.isMouseHover(*_window)) {

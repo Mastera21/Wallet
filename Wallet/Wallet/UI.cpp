@@ -38,7 +38,7 @@ void UI::deinit() {
     _deposit.deinit();
     _menu.deinit();
 }
-void UI::handleEvent(sf::Event& e, sf::RenderWindow*& window) {
+void UI::handleEvent(sf::Event& e, std::shared_ptr<sf::RenderWindow>& window) {
    if (!_isBackButtonPressed) {
        if (_isDepositButtonPressed) {
            _deposit.handleEvent(e, window, _isBackButtonPressed);
@@ -49,7 +49,7 @@ void UI::handleEvent(sf::Event& e, sf::RenderWindow*& window) {
        }
    }
 }
-void UI::draw(sf::RenderWindow*& window) {
+void UI::draw(std::shared_ptr<sf::RenderWindow>& window) {
    if (!_isBackButtonPressed) {
        if (_isDepositButtonPressed) {
            _deposit.draw(window);

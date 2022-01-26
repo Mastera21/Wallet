@@ -40,7 +40,7 @@ int32_t MainMenu::init(UpdateBalanceText* updateBalanceText) {
 void MainMenu::deinit() {
 
 }
-void MainMenu::draw(sf::RenderWindow* _window) {
+void MainMenu::draw(std::shared_ptr<sf::RenderWindow>& _window) {
     //text
     _walletText.draw(*_window);
     _balanceText.draw(*_window);
@@ -49,7 +49,7 @@ void MainMenu::draw(sf::RenderWindow* _window) {
     _depostButton.draw(*_window);
     _withdrawButton.draw(*_window);
 }
-void MainMenu::handleEvent(const sf::Event& e, sf::RenderWindow*& _window,  bool& _isDepositButtonPressed, bool& _isWithdrawButtonPressed) {
+void MainMenu::handleEvent(const sf::Event& e, std::shared_ptr<sf::RenderWindow>& _window,  bool& _isDepositButtonPressed, bool& _isWithdrawButtonPressed) {
     if (sf::Event::MouseMoved) {
         if (_depostButton.isMouseHover(*_window)) {
             _depostButton.setBackColor(sf::Color::Green);
